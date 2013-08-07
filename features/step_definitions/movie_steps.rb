@@ -18,7 +18,7 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
 end
 
 Then /I should see all of the movies/ do
-  Movie.find(:all).length.should == 10
+  Movie.find(:all).length.should == (page.body.split("<tr>").length - 2)
 end
 
 # Make it easier to express checking or unchecking several boxes at once
